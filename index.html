@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GwG-Schulungen für Steuerberater | fino taxtech</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #004a99;      /* Fino Blau (Dunkel) */
+            --accent: #00c2ff;       /* Tech Cyan (Akzent) */
+            --dark: #1a202c;         /* Fast Schwarz für Text */
+            --light: #f4f7f9;        /* Hintergrund Hell */
+            --white: #ffffff;
+            --success: #48bb78;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-btn:hover { background: var(--dark); }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #f8fbfd 0%, #e6f0fa 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+        
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --- Zielgruppen Bar --- */
+        .target-bar {
+            background: var(--dark);
+            color: var(--white);
+            padding: 15px 5%;
+            text-align: center;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .target-bar i { color: var(--accent); margin-right: 8px; }
+
+        /* --- Content Sections --- */
+        .section { padding: 80px 5%; }
+        .bg-light { background: var(--light); }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
+
+        /* Tech Teaser */
+        .tech-box {
+            border: 2px solid var(--accent);
+            background: linear-gradient(to right, #fff, #f0faff);
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            background: #e6f0fa;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        /* --- Buchungsformular (Checkout Style) --- */
+        .booking-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Info links, Formular rechts */
+        }
+
+        .booking-info {
+            background: var(--primary);
+            color: var(--white);
+            padding: 40px;
+        }
+        .booking-form { padding: 40px; }
+
+        .booking-info h3 { margin-bottom: 20px; font-size: 1.5rem; }
+        .benefit-list { list-style: none; }
+        .benefit-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .benefit-list i { margin-right: 10px; margin-top: 4px; color: var(--accent); }
+        
+        .price-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .price-big { font-size: 2rem; font-weight: 800; display: block; }
+
+        /* Form Controls */
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        input:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,74,153,0.1);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--dark); /* B2B Seriosität */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+        .checkout-btn:hover { background-color: #000; }
+
+        .legal-check {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 15px;
+        }
+        .legal-check a { color: var(--primary); }
+        .legal-row { display: flex; gap: 10px; margin-bottom: 8px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 60px 5%; }
+            .hero img { display: none; } /* Falls Bilder genutzt werden */
+            .booking-container { grid-template-columns: 1fr; }
+            .tech-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">fino <span>taxtech</span></a>
+        <a href="#buchen" class="nav-btn">Zur Buchung</a>
+    </nav>
+
+    <div class="target-bar">
+        <span><i class="fas fa-gavel"></i> Erfüllt § 6 GwG</span>
+        <span><i class="fas fa-briefcase"></i> Exklusiv für Steuerberater & Kanzleien</span>
+        <span><i class="fas fa-certificate"></i> Inkl. Zertifikat für die Prüfungsakte</span>
+    </div>
+
+    <header class="hero">
+        <div>
+            <div class="trust-badge"><i class="fas fa-check-circle" style="margin-right:8px"></i> Von Experten entwickelt</div>
+            <h1>GwG-Compliance rechtssicher meistern.</h1>
+            <p>Die digitale Schulungslösung für Steuerberater. Erfüllen Sie Ihre gesetzlichen Pflichten effizient, ohne den Kanzleialltag zu unterbrechen.</p>
+            <a href="#buchen" class="nav-btn" style="background: var(--dark);">Schulungstermin wählen</a>
+        </div>
+        <div style="background: #e2e8f0; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #a0aec0;">
+            <i class="fas fa-laptop-code" style="font-size: 5rem;"></i>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="tech-box">
+            <div class="tech-icon"><i class="fas fa-network-wired"></i></div>
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Mehr als nur Schulung: Tech-Driven Compliance</h3>
+                <p>Bei fino taxtech verstehen wir Prozesse. Wir arbeiten parallel an Softwarelösungen, die Ihre KYC-Prozesse automatisieren. Diese Schulung ist der fachliche Grundstein für Ihre digitale Kanzlei-Compliance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="buchen">
+        <div class="section-header">
+            <h2>Schulung buchen</h2>
+            <p>Wählen Sie Ihren passenden Termin. Die Schulung findet monatlich als interaktives Live-Webinar statt.</p>
+        </div>
+
+        <div class="booking-container">
+            <div class="booking-info">
+                <h3>Ihr Leistungspaket</h3>
+                <ul class="benefit-list">
+                    <li><i class="fas fa-check"></i> 120 Min. Live-Webinar (Interaktiv)</li>
+                    <li><i class="fas fa-check"></i> Fokus: Risiken in der Steuerberatung</li>
+                    <li><i class="fas fa-check"></i> Schulungsunterlagen als PDF</li>
+                    <li><i class="fas fa-check"></i> Personalisiertes Teilnahmezertifikat</li>
+                </ul>
+                
+                <div class="price-tag">
+                    <span style="font-size: 0.9rem; opacity: 0.8;">Teilnahmegebühr pro Person</span>
+                    <span class="price-big">149,00 €</span>
+                    <span style="font-size: 0.9rem;">zzgl. 19% MwSt. (177,31 € brutto)</span>
+                </div>
+            </div>
+
+            <div class="booking-form">
+                <form id="gwgForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label>Vorname</label>
+                            <input type="text" required>
+                        </div>
+                        <div>
+                            <label>Nachname</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+
+                    <label>Kanzlei / Unternehmen</label>
+                    <input type="text" required placeholder="Für die Rechnungserstellung">
+
+                    <label>E-Mail Adresse</label>
+                    <input type="email" required placeholder="Für Zugangsdaten & Zertifikat">
+
+                    <label style="color: var(--primary);">Gewünschter Termin (Live-Webinar)</label>
+                    <select id="dateSelector" required style="border: 2px solid var(--primary); font-weight: 600;">
+                        <option value="" disabled selected>Bitte Termin auswählen...</option>
+                        </select>
+
+                    <div class="legal-check">
+                        <div class="legal-row">
+                            <input type="checkbox" required id="agb">
+                            <label for="agb" style="font-weight: 400; margin:0;">Ich akzeptiere die <a href="#">AGB</a> und habe die <a href="#">Widerrufsbelehrung</a> für gewerbliche Kunden zur Kenntnis genommen.</label>
+                        </div>
+                        <div class="legal-row">
+                            <input type="checkbox" required id="datenschutz">
+                            <label for="datenschutz" style="font-weight: 400; margin:0;">Ich stimme der <a href="#">Datenschutzerklärung</a> zu.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="checkout-btn">
+                        <i class="fas fa-lock" style="margin-right: 8px;"></i> Kostenpflichtig bestellen
+                    </button>
+                    <p style="text-align: center; font-size: 0.8rem; color: #888; margin-top: 10px;">Verschlüsselte Übertragung</p>
+                </form>
+
+                <div id="successMsg" style="display:none; text-align: center; padding-top: 20px;">
+                    <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--success); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 10px;">Bestellung erfolgreich!</h3>
+                    <p>Vielen Dank. Sie erhalten Ihre Rechnung und die Zugangsdaten in Kürze per E-Mail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--dark); color: #718096; padding: 40px 5%; text-align: center; font-size: 0.9rem;">
+        <p>&copy; 2026 fino taxtech GmbH | Universitätsstraße 14, 34127 Kassel</p>
+        <p style="margin-top: 10px;">
+            <a href="#" style="color: inherit; margin: 0 10px;">Impressum</a> | 
+            <a href="#" style="color: inherit; margin: 0 10px;">Datenschutz</a> | 
+            <a href="#" style="color: inherit; margin: 0 10px;">AGB</a>
+        </p>
+    </footer>
+
+    <script>
+        // 1. DYNAMISCHE TERMIN-GENERIERUNG
+        // Erzeugt automatisch Termine für den 3. Mittwoch im Monat für die nächsten 6 Monate
+        function generateDates() {
+            const selector = document.getElementById('dateSelector');
+            const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            
+            let today = new Date();
+            let currentMonth = today.getMonth();
+            let currentYear = today.getFullYear();
+
+            // Wir generieren Termine für die nächsten 6 Monate
+            for (let i = 0; i < 6; i++) {
+                // Wir starten nächsten Monat, damit man nicht für "gestern" bucht
+                let targetMonth = currentMonth + 1 + i; 
+                let yearOffset = Math.floor(targetMonth / 12);
+                
+                let calcMonth = targetMonth % 12;
+                let calcYear = currentYear + yearOffset;
+
+                // Finde den 3. Mittwoch im Monat
+                let d = new Date(calcYear, calcMonth, 1);
+                let wednesdayCount = 0;
+                
+                // Durchlaufe die Tage des Monats
+                while (d.getMonth() === calcMonth) {
+                    if (d.getDay() === 3) { // 3 = Mittwoch
+                        wednesdayCount++;
+                        if (wednesdayCount === 3) { // Wir wollen den dritten Mittwoch
+                            break;
+                        }
+                    }
+                    d.setDate(d.getDate() + 1);
+                }
+
+                // Formatierung für das Dropdown
+                let dayString = d.getDate() < 10 ? '0' + d.getDate() : d.getDate();
+                let dateValue = `${calcYear}-${calcMonth + 1}-${dayString}`; // YYYY-MM-DD
+                let dateDisplay = `Mittwoch, ${dayString}. ${months[calcMonth]} ${calcYear} (10:00 - 12:00 Uhr)`;
+
+                let option = document.createElement("option");
+                option.value = dateValue;
+                option.text = dateDisplay;
+                selector.add(option);
+            }
+        }
+
+        // 2. FORMULAR HANDLING
+        document.getElementById('gwgForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Verhindert das Neuladen der Seite
+            
+            const btn = this.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            // Lade-Animation simulieren
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verarbeitung...';
+            btn.style.opacity = '0.7';
+            
+            // Simulierter Server-Request (2 Sekunden)
+            setTimeout(() => {
+                this.style.display = 'none';
+                document.getElementById('successMsg').style.display = 'block';
+                // Scroll zum Erfolgstext
+                document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1500);
+
+            // Hier würde normalerweise der API Call stehen (z.B. fetch('/api/order', { ... }))
+        });
+
+        // Init beim Laden
+        window.onload = generateDates;
+    </script>
+
+</body>
+</html>
